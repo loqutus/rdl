@@ -12,7 +12,7 @@ jobs:
     - name: install rclone
       run: curl https://rclone.org/install.sh | sudo bash
     - name: export rclone.conf
-      run: echo "$RCLONE_CONF" > ~/.rclone.conf
+      run: 'echo "$RCLONE_CONF" > ~/.rclone.conf'
       env:
         SSH_KEY: ${{secrets.RCLONE_CONF}}
     - name: make
