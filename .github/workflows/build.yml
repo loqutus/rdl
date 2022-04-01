@@ -13,8 +13,9 @@ jobs:
       run: curl https://rclone.org/install.sh | sudo bash
     - name: export rclone.conf
       run: 'echo "$RCLONE_CONF" | base64 -d > ~/.rclone.conf'
+      shell: bash
       env:
-        SSH_KEY: ${{secrets.RCLONE_CONF}}
+        RCLONE_CONF: ${{secrets.RCLONE_CONF}}
     - name: make
-      run: cat ~/.rclone.conf && make && ./bin/rdl-linux torrent test/cosmos-laundromat.torrent gdrive6:/
+      run: make && ./bin/rdl-linux torrent test/cosmos-laundromat.torrent gdrive6:/
     timeout-minutes: 10
