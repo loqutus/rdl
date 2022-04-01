@@ -17,5 +17,5 @@ jobs:
       env:
         RCLONE_CONF: ${{secrets.RCLONE_CONF}}
     - name: make
-      run: make && ./bin/rdl-linux torrent test/cosmos-laundromat.torrent gdrive6:/
+      run: make
     timeout-minutes: 10
