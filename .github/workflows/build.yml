@@ -16,5 +16,5 @@ jobs:
       env:
         SSH_KEY: ${{secrets.RCLONE_CONF}}
     - name: make
-      run: cat ~/.rclone/config && make && ./bin/rdl-linux torrent test/cosmos-laundromat.torrent gdrive6:/
+      run: cat ~/.rclone.conf && make && ./bin/rdl-linux torrent test/cosmos-laundromat.torrent gdrive6:/
     timeout-minutes: 10
