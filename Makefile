@@ -18,6 +18,6 @@ test:
 clean:
 	go clean
 	rm bin/${BINARY_NAME}-linux
-	rclone purge gdrive6:/Cosmos\ Laundromat
+	rclone purge gdrive6:/Cosmos\ Laundromat || true
 
 default: get build test clean
