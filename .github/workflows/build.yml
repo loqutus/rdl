@@ -20,4 +20,9 @@ jobs:
         RCLONE_CONF: ${{secrets.RCLONE_CONF}}
     - name: make
       run: make
+    - name: Release
+      uses: softprops/action-gh-release@v1
+      if: startsWith(github.ref, 'refs/tags/')
+      with:
+        files: bin/rdl-linux
     timeout-minutes: 10
