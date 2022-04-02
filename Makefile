@@ -20,5 +20,6 @@ clean:
 	go clean
 	rm bin/${BINARY_NAME}-linux
 	rclone purge gdrive6:/Cosmos\ Laundromat || true
+	rclone delete gdrive6:'/Rick Astley - Never Gonna Give You Up (Official Music Video) [dQw4w9WgXcQ].mkv' || true
 
 default: get build test clean

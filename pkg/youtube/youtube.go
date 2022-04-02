@@ -16,6 +16,10 @@ func Download(fileName string) {
 		log.Println("continuing...")
 	}
 	defer rclone.Copy(types.RunConfig.YoutubeArchive, types.RunConfig.RCloneDrive+":/youtube.archive")
+	err = os.Chdir(types.RunConfig.TempDataDir)
+	if err != nil {
+		log.Fatal(err)
+	}
 	cmd := exec.Command("yt-dlp", "-N", "4", "--download-archive", types.RunConfig.YoutubeArchive, fileName, "--exec", "rclone move {} "+types.RunConfig.RClonePath)
 	cmd.Stdout = os.Stdout
 	cmd.Stderr = os.Stderr
