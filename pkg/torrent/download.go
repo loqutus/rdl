@@ -9,8 +9,8 @@ import (
 	"github.com/loqutus/rdl/pkg/types"
 )
 
-func Download() {
-	torrentFile, err := os.Open(types.RunConfig.FileName)
+func Download(fileName string) {
+	torrentFile, err := os.Open(fileName)
 	if err != nil {
 		log.Fatal(err)
 	}

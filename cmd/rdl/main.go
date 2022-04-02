@@ -14,9 +14,9 @@ func main() {
 	files.EnsureExists(types.RunConfig.TempDataDir)
 	switch types.RunConfig.Mode {
 	case "torrent":
-		torrent.Download()
-		rclone.Sync()
+		torrent.Download(types.RunConfig.FileName)
+		rclone.Sync(types.RunConfig.TempDataDir, types.RunConfig.RClonePath)
 	case "youtube":
-		youtube.Download()
+		youtube.Download(types.RunConfig.FileName)
 	}
 }

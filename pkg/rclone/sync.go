@@ -4,12 +4,10 @@ import (
 	"log"
 	"os"
 	"os/exec"
-
-	"github.com/loqutus/rdl/pkg/types"
 )
 
-func Sync() {
-	cmd := exec.Command("rclone", "sync", "-P", types.RunConfig.TempDataDir, types.RunConfig.RClonePath)
+func Sync(sourcePath, destinationPath string) {
+	cmd := exec.Command("rclone", "sync", "-P", sourcePath, destinationPath)
 	cmd.Stdout = os.Stdout
 	cmd.Stderr = os.Stderr
 	err := cmd.Run()

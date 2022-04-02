@@ -11,6 +11,8 @@ jobs:
         go-version: '^1.18'
     - name: install rclone
       run: curl https://rclone.org/install.sh | sudo bash
+    - name: install yt-dtl
+      run: sudo curl -L https://github.com/yt-dlp/yt-dlp/releases/latest/download/yt-dlp -o /usr/local/bin/yt-dlp && sudo chmod a+rx /usr/local/bin/yt-dlp
     - name: export rclone.conf
       run: 'echo "$RCLONE_CONF" | base64 -d > ~/.rclone.conf'
       shell: bash

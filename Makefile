@@ -14,6 +14,7 @@ build_darwin:
 
 test:
 	./bin/rdl-linux torrent test/cosmos-laundromat.torrent gdrive6:/
+	./bin/rdl-linux youtube https://www.youtube.com/watch?v=dQw4w9WgXcQ gdrive6:/
 
 clean:
 	go clean

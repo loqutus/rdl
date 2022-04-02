@@ -3,6 +3,7 @@ package client
 import (
 	"flag"
 	"os"
+	"strings"
 
 	"github.com/loqutus/rdl/pkg/types"
 )
@@ -22,8 +23,10 @@ func ParseArgs() {
 	}
 	types.RunConfig.FileName = os.Args[2]
 	types.RunConfig.RClonePath = os.Args[3]
+	types.RunConfig.RCloneDrive = strings.Split(types.RunConfig.RClonePath, ":")[0]
 	var tempDataDir = flag.String("t", "/tmp/rdl", "temp directory")
 	flag.Parse()
 	types.RunConfig.TempDataDir = *tempDataDir + "/data"
 	types.RunConfig.TempDB = *tempDataDir + "/session.db"
+	types.RunConfig.YoutubeArchive = *tempDataDir + "/youtube.archive"
 }
