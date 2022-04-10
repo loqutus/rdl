@@ -20,11 +20,11 @@ func Download(fileName string) {
 	if err != nil {
 		log.Fatal(err)
 	}
-	cmd := exec.Command("yt-dlp", "-N", "4", "--download-archive", types.RunConfig.YoutubeArchive, fileName, "--exec", "rclone move {} "+types.RunConfig.RClonePath+";rm {}")
+	cmd := exec.Command("yt-dlp", "-N", "4", "--download-archive", types.RunConfig.YoutubeArchive, fileName, "--exec", "rclone move {} "+types.RunConfig.RClonePath+";rm "+types.RunConfig.TempDataDir+"/*")
 	cmd.Stdout = os.Stdout
 	cmd.Stderr = os.Stderr
 	err = cmd.Run()
 	if err != nil {
-		log.Fatal("cmd.Run() failed with %s\n", err)
+		log.Fatal("cmd.Run() failed with", err)
 	}
 }
